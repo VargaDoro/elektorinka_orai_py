@@ -1,17 +1,22 @@
 def felbontas(szam:int):
-    ora = 0
-    perc = 0
-    mp = 0
-    if (szam < 60):
-        mp = szam
-    elif (szam < 3600):
-        perc = szam // 60
-        mp = szam % 60
-    else:
-        ora = szam // 3600
-        perc = (szam % 3600) // 60
-        mp = szam % 60
-    print(f"{szam}mp -> {ora}ó, {perc}p, {mp}mp")
+    ora:int = 0
+    perc:int = 0
+    mp:int = 0
+    while (szam > 0):
+        n:int=1
+        if (szam < 60):
+            mp = szam
+            n += 1
+        elif (szam < 3600):
+            perc = szam // 60
+            mp = szam % 60
+            n += 1
+        else:
+            ora = szam // 3600
+            perc = (szam % 3600) // 60
+            mp = szam % 60
+            n += 1
+    print(f"{szam*n:>3}mp -> {ora*n:>3}ó, {perc*n:>3}p, {mp*n:>3}mp")
 
 def visszafele(ora:int, perc:int, mp:int):
     szam:int=0
