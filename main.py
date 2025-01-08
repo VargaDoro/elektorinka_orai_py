@@ -18,3 +18,5 @@ from etelek import Etelek
 etelek_lista=Kirat("etelek_.txt")
 Kirat.kiir(etelek_lista)
 Kirat.atlag_elkido(etelek_lista)
+atlag = etelek_lista.atlag_elkido()
+print(f"Átlag elkészítési idő: {atlag} perc")

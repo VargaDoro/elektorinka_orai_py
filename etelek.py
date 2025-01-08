@@ -1,7 +1,12 @@
 class Etelek:
     def __init__(self, nev, elk_ido):
         self.nev = nev
-        self.elk_ido = elk_ido
+        try:
+            # Megpróbáljuk az elk_ido-t egész számra konvertálni.
+            self.elk_ido = int(elk_ido)
+        except ValueError:
+            # Ha nem sikerül a konverzió, alapértelmezett értéket adunk neki.
+            self.elk_ido = 0
         
     def __str__(self):
         return f"{self.nev}: {self.elk_ido}"
@@ -26,5 +31,5 @@ class Kirat:
 
     def atlag_elkido(self):
         if self.etelek_lista:
-            return sum([etel.elk_ido for etel in self.etelek_lista]) / len(self.etelek_lista)
+            return sum(etel.elk_ido for etel in self.etelek_lista) // len(self.etelek_lista)
         return 0
